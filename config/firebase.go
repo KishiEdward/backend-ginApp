@@ -1,17 +1,16 @@
 package config
 
 import (
-	"fmt"
+	"context"
 	"log"
 	"os"
 
-	"github.com/KishiEdward/backend_ginApp/models"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
-	"gorm.io/gorm/logger"
+	firebase "firebase.google.com/go/v4"
+	"firebase.google.com/go/v4/auth"
+	"google.golang.org/api/option"
 )
 
-var DB *gorm.DB
+var FirebaseAuth *auth.Client
 
 func InitDatabase() {
 	host := os.Getenv("DB_HOST")
