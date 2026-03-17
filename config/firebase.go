@@ -20,4 +20,9 @@ func InitDatabase() {
 	if err != nil {
 		log.Fatalf("Gagal init Firebase: %v", err)
 	}
+
+	FirebaseAuth, err = app.Auth(context.Background())
+	if err != nil {
+		log.Fatalf("Gagal mendapatkan Firebase Auth client: %v", err)
+	}
 }
