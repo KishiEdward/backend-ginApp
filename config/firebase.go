@@ -31,4 +31,11 @@ func InitDatabase() {
 	if err != nil {
 		log.Fatalf("Gagal koneksi ke database: %v", err) // [cite: 608]
 	}
+
+	sqlDB, err := DB.DB()
+	if err != nil {
+		log.Fatalf("Gagal mendapatkan sql.DB: %v", err) // [cite: 616]
+	}
+	sqlDB.SetMaxOpenConns(25) // [cite: 618]
+	sqlDB.SetMaxIdleConns(10)
 }
