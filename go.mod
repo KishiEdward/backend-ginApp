@@ -1,4 +1,4 @@
-module github.com/yourusername/backend_ginApp
+module github.com/KishiEdward/backend_ginApp
 
 go 1.26.1
 
