@@ -46,4 +46,6 @@ func InitDatabase() {
 	if err != nil {
 		log.Fatalf("AutoMigrate gagal: %v", err)
 	}
+
+	log.Println("Database terhubung dan tabel sudah di-migrate")
 }
