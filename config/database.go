@@ -19,4 +19,10 @@ func Database() {
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
+	
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", user, password, host, port, dbname)
+
+	gormConfig := &gorm.Config{
+		Logger: logger.Default.LogMode(logger.Info), // Log semua query SQL [cite: 602]
+	}
 }
