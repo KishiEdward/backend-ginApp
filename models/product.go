@@ -12,3 +12,12 @@ type Product struct {
 	ImageURL    string  `gorm:"size:500" json:"image_url"`
 	IsActive    bool    `gorm:"default:true;index" json:"is_active"`
 }
+
+type CreateProductRequest struct {
+	Name        string  `json:"name" binding:"required,min=2,max=200"`
+	Description string  `json:"description" binding:"required"`
+	Price       float64 `json:"price" binding:"required,gt=0"`
+	Stock       int     `json:"stock" binding:"min=0"`
+	Category    string  `json:"category" binding:"required"`
+	ImageURL    string  `json:"image_url"`
+}
