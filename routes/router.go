@@ -19,3 +19,6 @@ func SetupRouter() *gin.Engine {
 		}
 		c.Next()
 	})
+	
+	authHandler := handlers.NewAuthHandler()
+	productHandler := handlers.NewProductHandler()
