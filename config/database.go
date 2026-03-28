@@ -2,8 +2,8 @@ package config
 
 import (
 	"fmt"
-	"os"
 	"log"
+	"os"
 
 	"github.com/KishiEdward/backend_ginApp/models"
 	"gorm.io/driver/mysql"
