@@ -12,7 +12,7 @@ import (
 
 var FirebaseAuth *auth.Client
 
-func InitDatabase() {
+func InitFirebase() {
 	credPath := os.Getenv("FIREBASE_CREDENTIALS_PATH")
 
 	opt := option.WithCredentialsFile(credPath)

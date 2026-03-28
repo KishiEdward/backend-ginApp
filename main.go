@@ -1,12 +1,12 @@
 package main
 
-import ( 
+import (
 	"log"
 	"os"
 
+	"github.com/KishiEdward/backend_ginApp/config"
+	"github.com/KishiEdward/backend_ginApp/routes"
 	"github.com/joho/godotenv"
-	"github.com/kishiEdward/backend_ginApp/config"
-	"github.com/kishiEdward/backend_ginApp/routes"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	}
 
 	config.InitFirebase()
-	config.InitDatabase()
+	config.Database()
 	
 	router := routes.SetupRouter() 
 
