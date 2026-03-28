@@ -1,11 +1,21 @@
-package routes // [cite: 1364]
+package routes
 
-import ( // [cite: 1365]
-	"github.com/gin-gonic/gin" // [cite: 1367]
-	"github.com/yourusername/backend_ginApp/handlers" // [cite: 1368]
-	"github.com/yourusername/backend_ginApp/middleware" // [cite: 1368]
-) // [cite: 1366]
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/yourusername/backend_ginApp/handlers"
+	"github.com/yourusername/backend_ginApp/middleware"
+)
 
-func SetupRouter() *gin.Engine { // [cite: 1369]
-	// gin.Default() sudah include Logger & Recovery middleware // [cite: 1370]
-	r := gin.Default() // [cite: 1370]
+func SetupRouter() *gin.Engine {
+	r := gin.Default()
+	r.Use(func(c *gin.Context) {
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+		c.Next()
+	})
