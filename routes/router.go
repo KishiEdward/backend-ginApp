@@ -39,3 +39,13 @@ func SetupRouter() *gin.Engine {
 	
 	products.GET("", productHandler.GetAll)
 	products.GET("/:id", productHandler.GetByID)
+
+	adminProducts := products.Group("") 
+	adminProducts.Use(middleware.AdminOnly()) 
+
+	adminProducts.POST("", productHandler.Create) 
+	adminProducts.PUT("/:id", productHandler.Update)
+	adminProducts.DELETE("/:id", productHandler.Delete)
+
+	return r
+} 
