@@ -35,3 +35,7 @@ func (r *ProductRepository) FindByID(id uint) (*models.Product, error) {
 	result := config.DB.First(&product, id)
 	return &product, result.Error
 }
+
+func (r *ProductRepository) Create(product *models.Product) error {
+	return config.DB.Create(product).Error
+}
