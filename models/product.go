@@ -21,3 +21,12 @@ type CreateProductRequest struct {
 	Category    string  `json:"category" binding:"required"`
 	ImageURL    string  `json:"image_url"`
 }
+
+type UpdateProductRequest struct {
+	Name        *string  `json:"name" binding:"omitempty,min=2"`
+	Description *string  `json:"description"`
+	Price       *float64 `json:"price" binding:"omitempty,gt=0"`
+	Stock       *int     `json:"stock" binding:"omitempty,min=0"`
+	Category    *string  `json:"category"`
+	ImageURL    *string  `json:"image_url"`
+}
