@@ -19,3 +19,9 @@ func (r *UserRepository) FindByFirebaseUID(uid string) (*models.User, error) {
 	}
 	return &user, nil
 }
+
+func (r *UserRepository) FindByEmail(email string) (*models.User, error) {
+	var user models.User
+	result := config.DB.Where("email = ?", email).First(&user)
+	return &user, result.Error
+}
