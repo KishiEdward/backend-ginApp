@@ -13,3 +13,6 @@ func main() {
 	if err := godotenv.Load(); err != nil {
 		log.Println("File .env tidak ditemukan, menggunakan environment variable sistem")
 	}
+	
+	config.InitFirebase()
+	config.InitDatabase()
