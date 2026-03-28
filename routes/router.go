@@ -31,3 +31,11 @@ func SetupRouter() *gin.Engine {
 
 	auth := v1.Group("/auth")
 	auth.POST("/verify-token", authHandler.VerifyToken)
+
+	protected := v1.Group("") 
+	protected.Use(middleware.AuthMiddleware()) 
+
+	products := protected.Group("/products") 
+	
+	products.GET("", productHandler.GetAll)
+	products.GET("/:id", productHandler.GetByID)
