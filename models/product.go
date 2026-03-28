@@ -9,4 +9,6 @@ type Product struct {
 	Price       float64 `gorm:"not null" json:"price"`
 	Stock       int     `gorm:"default:0" json:"stock"`
 	Category    string  `gorm:"size:100;index" json:"category"`
+	ImageURL    string  `gorm:"size:500" json:"image_url"`
+	IsActive    bool    `gorm:"default:true;index" json:"is_active"`
 }
